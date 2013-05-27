@@ -13,3 +13,8 @@ Add a file called `account.json` at the root and enter the following credentials
 		"password": "my-password",
 		"secret": "my-secret-word"
 	}
+
+2. Run it
+---------------------
+
+Enter `node credit.js` or `./credit.js` to run it as an executable

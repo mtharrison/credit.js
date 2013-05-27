@@ -1,17 +1,19 @@
+#! /usr/local/bin/node
+
 var request = require('request').defaults({followAllRedirects: true}),
 /**
  * Load the jquery module
  */
 $ = require('jquery'),
-        /**
-         * Set the base url
-         */
-        _ = require("underscore"),
-        /**
-         * 
-         */
-        prompt = require("prompt"),
-        config = require("./config.json");
+/**
+ * Set the base url
+ */
+_ = require("underscore"),
+/**
+ * 
+ */
+prompt = require("prompt"),
+config = require("./config.json");
 
 try {
     var account = require("./account.json");
@@ -23,7 +25,7 @@ try {
 
 var Credit = function() {
     this.account = {};
-    this.data = {}; //This will hold the actual account data
+    this.data = {}; 
 };
 
 Credit.prototype = {
