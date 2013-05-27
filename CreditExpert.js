@@ -1,12 +1,15 @@
 var request = require('request').defaults({followAllRedirects: true}),
 $ = require('jquery'),
-_ = require("underscore");
-
+        _ = require("underscore");
 var CreditExpert = function(config, account) {
     this.config = config;
     this.account = account;
     this.data = {};
 };
+
+function trimWhiteSpace (str) {
+    return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+}
 
 CreditExpert.prototype = {
     /**
@@ -25,8 +28,7 @@ CreditExpert.prototype = {
      */
     login: function() {
         var self = this;
-
-        request.get(self.config.url, function(error, response, body) {
+        request.get(self.config.startUrl, function(error, response, body) {
             var $html = $(body);
             self.setMeta($html);
             form = {
@@ -37,7 +39,7 @@ CreditExpert.prototype = {
                 "loginUser:ibtnEnter.x": self.config.imageButtonClickConstants.x,
                 "loginUser:ibtnEnter.y": self.config.imageButtonClickConstants.y
             };
-            request.post(self.config.url, {form: form}, $.proxy(self.memorableWord, self));
+            request.post(self.config.startUrl, {form: form}, $.proxy(self.memorableWord, self));
         });
         return this;
     },
@@ -56,9 +58,7 @@ CreditExpert.prototype = {
                 indexes = [letter1, letter2].map(function(value) {
             return parseInt(value.substring(7, value.lastIndexOf(":"))) - 1;
         });
-
         self.setMeta($html);
-
         form = {
             "__CURRENTREFRESHTICKET": self.__CURRENTREFRESHTICKET,
             "__VIEWSTATE": self.__VIEWSTATE,
@@ -67,8 +67,11 @@ CreditExpert.prototype = {
             "loginUserMemorableWord:ibtnEnter.x": self.config.imageButtonClickConstants.x,
             "loginUserMemorableWord:ibtnEnter.y": self.config.imageButtonClickConstants.y
         };
-
-        request.post(response.request.href, {form: form}, $.proxy(self.scrape, self));
+        request.post(response.request.href, {form: form}, $.proxy(self.fullReport, self));
+    },
+    fullReport: function(error, response, body) {
+        var self = this;
+        request(self.config.fullReportUrl, $.proxy(self.scrape, self));
     },
     /**
      * 
@@ -80,15 +83,32 @@ CreditExpert.prototype = {
     scrape: function(error, response, body) {
         var self = this,
                 $html = $(body);
-
         self.data = {
             score: {
                 number: $html.find(self.config.scoreID).html(),
                 description: $html.find(self.config.scoreDescriptionID).html()
-            }
+            },
+            details: {
+                name: $html.find(self.config.name).html(),
+            },
+            summary: {
+                numAccounts: $html.find(self.config.summaryNumberofAccounts).html(),
+                outstandingDebt: $html.find(self.config.outstandingDebt).html(),
+                numOverdueAccounts: $html.find(self.config.numOverdueAccounts).html(),
+                numMissedOrLatePayments: $html.find(self.config.numMissedOrLatePayments).html(),
+            },
+            accounts: []
         };
+        $html.find(".accountrowblue").each(function(){
+            self.data.accounts.push({
+                name: trimWhiteSpace($(this).children("div").eq(0).html()),
+                type: trimWhiteSpace($(this).children("div").eq(1).html()),
+                status: trimWhiteSpace($(this).children("div").eq(2).html()),
+                owed: trimWhiteSpace($(this).children("div").eq(3).html()),
+                lastUpdated: trimWhiteSpace($(this).children("div").eq(4).html()),
+            });
+        });
         console.log(self.data);
     }
 };
-
 module.exports.create = CreditExpert;

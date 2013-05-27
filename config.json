@@ -1,13 +1,19 @@
 {
-	"url": "https://www.creditexpert.co.uk/MCCLogin.aspx",
-	"imageButtonClickConstants": {
-		"x": -302,
-		"y": -358
-	},
-	"viewStateInput": "input[name='__VIEWSTATE']",
-	"currentRefreshTicketInput": "input[name='__CURRENTREFRESHTICKET']",
-	"memorableWordLetter1Input": "#loginUserMemorableWord_SecurityQuestionLetter1",
-	"memorableWordLetter2Input": "#loginUserMemorableWord_SecurityQuestionLetter2",
-	"scoreID": "#MCC_ScorefactorSI1_lblnonLBScoreDeviation",
-	"scoreDescriptionID": "#MCC_ScoreIntelligence_ScoreIntelligence_Dial1_MyScoreV31_pnlMyScore1_lblMyScoreDescription"
+    "startUrl": "https://www.creditexpert.co.uk/MCCLogin.aspx",
+    "fullReportUrl": "https://www.creditexpert.co.uk/MCCCreditReport.aspx?link=MCCScoreIntelligence",
+    "imageButtonClickConstants": {
+        "x": -302,
+        "y": -358
+    },
+    "viewStateInput": "input[name='__VIEWSTATE']",
+    "currentRefreshTicketInput": "input[name='__CURRENTREFRESHTICKET']",
+    "memorableWordLetter1Input": "#loginUserMemorableWord_SecurityQuestionLetter1",
+    "memorableWordLetter2Input": "#loginUserMemorableWord_SecurityQuestionLetter2",
+    "scoreID": "#MCCCreditReport_MyScoreV3_pnlMyScore1_lblMyScore",
+    "scoreDescriptionID": "#MCCCreditReport_MyScoreV3_pnlMyScore1_lblMyScoreDescription",
+    "numAccounts": "#creditAccountsToolTip .calcBlue",
+    "outstandingDebt": "#outstandingDebtToolTip .calcBlue",
+    "numOverdueAccounts": "#accountsOverdueToolTip .calcBlue",
+    "numMissedOrLatePayments": "#missedorLatePaymentsToolTip .calcBlue",
+    "name": ".reportHeaderUserDescription3 .minorIndent"
 }
