@@ -1,15 +1,17 @@
 {
-	"name": "credit.js",
-	"description": "A tool for programmatically getting your credit score from your credit expert account",
-	"homepage": "https://github.com/mtharrison/credit.js",
-	"keywords": ["experian", "credit", "credit score", "finance"],
-	"author": "Matt Harrison <mt.harrison86@gmail.com>",
-	"contributors": [],
-	"dependencies": {
-		"request": "*",
-		"jquery": "*"
-	},
-	"repository": {"type": "git", "url": "git://github.com/mtharrison/credit.js.git"},
-	"main": "credit.js",
-	"version": "1.0.0"
+    "name": "credit.js",
+    "description": "A tool for programmatically getting your credit score from your credit expert account",
+    "homepage": "https://github.com/mtharrison/credit.js",
+    "keywords": ["experian", "credit", "credit score", "finance"],
+    "author": "Matt Harrison <mt.harrison86@gmail.com>",
+    "contributors": [],
+    "dependencies": {
+        "request": "*",
+        "jquery": "*",
+        "underscore": "*",
+        "prompt": "*"
+    },
+    "repository": {"type": "git", "url": "git://github.com/mtharrison/credit.js.git"},
+    "main": "credit.js",
+    "version": "1.0.0"
 }
