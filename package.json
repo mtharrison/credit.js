@@ -1,15 +1,15 @@
 {
-	"name": "underscore",
-	"description": "JavaScript's functional programming helper library.",
-	"homepage": "http://documentcloud.github.com/underscore/",
-	"keywords": ["util", "functional", "server", "client", "browser"],
-	"author": "Jeremy Ashkenas <jeremy@documentcloud.org>",
+	"name": "credit.js",
+	"description": "A tool for programmatically getting your credit score from your credit expert account",
+	"homepage": "https://github.com/mtharrison/credit.js",
+	"keywords": ["experian", "credit", "credit score", "finance"],
+	"author": "Matt Harrison <mt.harrison86@gmail.com>",
 	"contributors": [],
 	"dependencies": {
 		"request": "*",
 		"jquery": "*"
 	},
-	"repository": {"type": "git", "url": "git://github.com/documentcloud/underscore.git"},
-	"main": "underscore.js",
-	"version": "1.1.6"
+	"repository": {"type": "git", "url": "git://github.com/mtharrison/credit.js.git"},
+	"main": "credit.js",
+	"version": "1.0.0"
 }
