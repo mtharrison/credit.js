@@ -1,6 +1,8 @@
 credit.js
 =========
 
+[![Build Status](https://travis-ci.org/mtharrison/credit.js.png)](https://travis-ci.org/mtharrison/credit.js)
+
 A tool for getting your credit score programatically from Experian Credit Expert (UK)
 
 1. Install dependencies
