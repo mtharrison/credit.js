@@ -8,7 +8,7 @@ A tool for getting your credit score programatically from Experian Credit Expert
 
 To install all dependencies, simple run `npm install`
 
-2. Add your credentials
+2. Add your credentials (optional)
 ---------------------
 
 Add a file called `account.json` at the root and enter the following credentials:
@@ -18,6 +18,8 @@ Add a file called `account.json` at the root and enter the following credentials
 		"password": "my-password",
 		"secret": "my-secret-word"
 	}
+
+If you don't want to do this, you will be prompted for your credentials each time.
 
 3. Run it
 ---------------------
