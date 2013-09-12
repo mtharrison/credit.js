@@ -3,7 +3,12 @@ credit.js
 
 A tool for getting your credit score programatically from Experian Credit Expert (UK)
 
-1. Add your credentials
+1. Install dependencies
+---------------------
+
+To install all dependencies, simple run `npm install`
+
+2. Add your credentials
 ---------------------
 
 Add a file called `account.json` at the root and enter the following credentials:
@@ -14,7 +19,7 @@ Add a file called `account.json` at the root and enter the following credentials
 		"secret": "my-secret-word"
 	}
 
-2. Run it
+3. Run it
 ---------------------
 
 Enter `node credit.js` or `./credit.js` to run it as an executable
